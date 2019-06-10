@@ -99,8 +99,8 @@ class ScrolllerExtended {
             'src': image.src,
             'filename': image.src.split('/').reverse()[0],
             'subReddit': subReddit.querySelector('a').innerText,
-            'subRedditLink': subRedditItemLink,
-            'subRedditItemLink': subRedditItemLink.split('/', 5).join('/'),
+            'subRedditLink': subRedditItemLink.split('/', 5).join('/'),
+            'subRedditItemLink': subRedditItemLink,
         }
     }
 
