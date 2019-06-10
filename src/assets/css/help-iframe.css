@@ -1,0 +1,26 @@
+#se-help-popup {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    border: none;
+    z-index: 999999999;
+}
+
+#se-help-popup iframe {
+    opacity: 1.0;
+    background-color: white;
+    border: 1px solid #ececec;
+    width: 840px;
+    height: calc(100% - 100px);
+    max-width: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: auto;
+    box-shadow: 0 1px 10px -3px black;
+    margin: 50px auto;
+    display: block;
+}

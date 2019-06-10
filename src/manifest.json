@@ -20,6 +20,9 @@
         "contentscript.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "assets/html/help-dialog.html",
+    "assets/css/help-iframe.css"
   ]
-
 }

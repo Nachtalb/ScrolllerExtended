@@ -1,15 +1,60 @@
-/* * * * * *
- * Keymap  *
- * * * * * *
- *
- * CTRL-s / CMD-s / c: Save current media in slideshow to DownloadDir/scrolller/SubReddit - MediaID.ext
- */
+const URL = chrome.runtime.getURL('');
+
+class HelpDialog {
+    constructor() {
+        this.createHelpMenu();
+    }
+
+    createHelpMenu() {
+        if (this.helpPopup !== undefined)
+            return;
+        let container = document.createElement('div');
+        let shadowRoot = container.attachShadow({mode: 'open'});
+
+        let styles = document.createElement('link');
+        styles.rel = 'stylesheet';
+        styles.href = URL + 'assets/css/help-iframe.css';
+
+        this.helpPopup = document.createElement('div');
+        this.helpPopup.style.display = 'none';
+        this.helpPopup.id = 'se-help-popup';
+
+        let iframe = document.createElement('iframe');
+        iframe.src = URL + 'assets/html/help-dialog.html';
+
+        this.helpPopup.append(iframe);
+        shadowRoot.append(styles);
+        shadowRoot.append(this.helpPopup);
+        document.getElementsByTagName('body')[0].append(container);
+    }
+
+    isShown() {
+        return this.helpPopup.style.display === 'block'
+    }
+
+    hide() {
+        this.helpPopup.style.display = 'none'
+    }
+
+    show() {
+        this.helpPopup.style.display = 'block'
+    }
+
+    toggle() {
+        if (this.isShown())
+            this.hide();
+        else
+            this.show();
+    }
+}
 
 class ScrolllerExtended {
     constructor() {
         this.IS_MAC = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        this.helpDialog = new HelpDialog();
 
         document.addEventListener('keydown', this.keyPressed);
+        document.addEventListener('click', this.clicked);
     }
 
     controlKeyPressed(event) {
@@ -20,11 +65,14 @@ class ScrolllerExtended {
     }
 
     keyPressed(event) {
-        self = window.scroller_extended;
+        self = window.scrolller_extended;
 
         switch (event.key) {
             case 'c':
                 self.saveCurrentImage();
+                break;
+            case 'h':
+                self.helpDialog.toggle();
                 break;
             case 's':
                 if (self.controlKeyPressed(event)) {
@@ -33,7 +81,13 @@ class ScrolllerExtended {
                 }
                 break;
         }
+    }
 
+    clicked(event) {
+        self = window.scrolller_extended;
+
+        if (self.helpDialog.isShown())
+            self.helpDialog.hide();
     }
 
     getInfoFromSlideshowItem(item) {
@@ -67,4 +121,4 @@ class ScrolllerExtended {
     }
 }
 
-window.scroller_extended = new ScrolllerExtended();
+window.scrolller_extended = new ScrolllerExtended();
