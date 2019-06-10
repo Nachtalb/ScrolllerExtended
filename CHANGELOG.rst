@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.0.1 (unreleased)
+0.1.0 (2019-06-10)
 ------------------
 
 - Use shortcut CTRL+s,CMD+s or c to save image in slideshow
