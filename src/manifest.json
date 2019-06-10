@@ -1,0 +1,19 @@
+{
+  "name": "Scroller Extended",
+  "description": "Various additional features to scroller.com",
+  "version": "0.1",
+  "permissions": [
+    "downloads"
+  ],
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://scrolller.com/*"],
+      "js" : ["contentscript.js"]
+    }
+  ]
+
+}
