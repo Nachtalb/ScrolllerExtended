@@ -2,6 +2,8 @@
 Scrolller Extended
 ==================
 
+`Github <https://github.com/Nachtalb/ScrolllerExtended>`_
+
 Keymap
 ======
 
