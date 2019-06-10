@@ -77,6 +77,12 @@ class ScrolllerExtended {
             case 'h':
                 self.helpDialog.toggle();
                 break;
+            case 'g':
+                self.toggleGifs();
+                break;
+            case 'p':
+                self.togglePics();
+                break;
             case 's':
                 if (self.controlKeyPressed(event)) {
                     event.preventDefault();
@@ -91,6 +97,14 @@ class ScrolllerExtended {
 
         if (self.helpDialog.isShown())
             self.helpDialog.hide();
+    }
+
+    togglePics () {
+        document.querySelector('.settings-half.right').click()
+    }
+
+    toggleGifs() {
+        document.querySelector('.settings-half.left').click()
     }
 
     getInfoFromSlideshowItem(item) {
