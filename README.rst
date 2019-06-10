@@ -2,7 +2,7 @@
 Scrolller Extended
 ==================
 
-`Github <https://github.com/Nachtalb/ScrolllerExtended>`_
+`Github <https://github.com/Nachtalb/ScrolllerExtended>`_ | `Chrome Webstore <https://chrome.google.com/webstore/detail/scroller-extended/jkhgkkhkokkebajnhmogconodclkopdh>`_
 
 Scrolller is a neat little website to browser media files from Reddit.
 
