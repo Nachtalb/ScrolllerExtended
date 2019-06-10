@@ -71,6 +71,9 @@ class ScrolllerExtended {
             case 'c':
                 self.saveCurrentImage();
                 break;
+            case 'o':
+                self.openOnReddit();
+                break;
             case 'h':
                 self.helpDialog.toggle();
                 break;
@@ -104,9 +107,17 @@ class ScrolllerExtended {
         }
     }
 
+    openOnReddit() {
+        let current = document.getElementsByClassName('media-element slideshow')[0];
+        if (current === undefined)
+            return;
+        let info = this.getInfoFromSlideshowItem(current);
+        window.open(info.subRedditItemLink, '_blank');
+    }
+
     downloadSlideshowImages(item) {
         let image_info = this.getInfoFromSlideshowItem(item);
-        chrome.runtime.sendMessage(chrome.runtime.id, {
+        chrome.runtime.sendMessage({
             'task': 'download',
             'download': image_info.src,
             'filename': image_info.subReddit + ' - ' + image_info.filename,
