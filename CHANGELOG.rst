@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.1 (unreleased)
+0.1.1 (2019-06-11)
 ------------------
 
 - Fix "scrolller" in some locations like extension name (3 "l" instead of 2)
