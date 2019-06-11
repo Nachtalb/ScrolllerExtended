@@ -108,13 +108,15 @@ class ScrolllerExtended {
     }
 
     getInfoFromSlideshowItem(item) {
-        let image = item.querySelector('.fill-size[style=""] img');
+        let media = item.querySelector('.fill-size[style=""] source');
+        if (media === null)
+            media = item.querySelector('.fill-size[style=""] img');
         let subReddit = item.querySelector('.text');
         let subRedditItemLink = subReddit.querySelector('.external-link a').href;
 
         return {
-            'src': image.src,
-            'filename': image.src.split('/').reverse()[0],
+            'src': media.src,
+            'filename': media.src.split('/').reverse()[0],
             'subReddit': subReddit.querySelector('a').innerText,
             'subRedditLink': subRedditItemLink.split('/', 5).join('/'),
             'subRedditItemLink': subRedditItemLink,

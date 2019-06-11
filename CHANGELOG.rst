@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - Fix "scrolller" in some locations like extension name (3 "l" instead of 2)
+- Fix only thumbnail of videos were saved not the actual video
 
 
 0.1.0 (2019-06-10)
