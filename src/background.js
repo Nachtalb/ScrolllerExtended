@@ -1,4 +1,4 @@
-const DOWNLOAD_DIR = 'scroller/';
+const DOWNLOAD_DIR = 'scrolller/';
 
 chrome.runtime.onMessage.addListener(function (message, sender) {
     if (message.task === 'download') {
